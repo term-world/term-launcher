@@ -4,7 +4,7 @@
   "description": "Replacement launcher page for term-world",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.70.0"
+    "vscode": "^1.60.0"
   },
   "categories": [
     "Other"
@@ -12,12 +12,6 @@
   "activationEvents": [
     "*"
   ],
-  "contributes": {
-    "commands": [{
-      "command": "world.menu",
-      "title": "term-world Menu: Show"
-    }]
-  },
   "browser": "./dist/web/extension.js",
   "scripts": {
     "test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
