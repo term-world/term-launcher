@@ -12,6 +12,12 @@
   "activationEvents": [
     "*"
   ],
+  "contributes": {
+    "commands": [{
+      "command": "world.menu",
+      "title": "term-world Menu: Show"
+    }]
+  },
   "browser": "./dist/web/extension.js",
   "scripts": {
     "test": "vscode-test-web --browserType=chromium --extensionDevelopmentPath=. --extensionTestsPath=dist/web/test/suite/index.js",
