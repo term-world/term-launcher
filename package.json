@@ -10,13 +10,15 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "contributes": {
-    "commands": [{
-      "command": "world.menu",
-      "title": "term-world Menu: Show"
-    }]
+    "commands": [
+      {
+        "command": "world.menu",
+        "title": "term-world Menu: Show"
+      }
+    ]
   },
   "browser": "./dist/web/extension.js",
   "scripts": {
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "@types/mocha": "^9.1.1",
+    "@types/node-fetch": "^2.6.2",
     "@types/vscode": "^1.60.0",
     "@types/webpack-env": "^1.17.0",
     "@typescript-eslint/eslint-plugin": "^5.31.0",
