@@ -131,7 +131,7 @@ export class termPanel {
           </div>
         </div>
         <h2>Live from term-world</h2>
-        <img src = "https://unsplash-proxy.glitch.me/random/512x512?query=circuit-board">
+        <img src = "https://unsplash-proxy.glitch.me/random/512x512?query=computer">
       </div>
       <!-- Column 2 -->
       <div>
@@ -141,7 +141,7 @@ export class termPanel {
         
       </p>
       <script>
-        let news = "https://raw.githubusercontent.com/allegheny-college-cmpsc-100-fall-2022/TNN/main/news.json";
+        let news = "https://raw.githubusercontent.com/term-world/TNN/main/news.json";
         jQuery.ajax({
           url: news,
           success: (data) => {
