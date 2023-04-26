@@ -1,0 +1,70 @@
+html {
+    overflow-x: hidden;
+    background-color: #222;
+}
+
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+body {
+    font-family: fira-mono, monospace;
+    color: #fff;
+    font-size: 1vw;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 50% auto;
+    width: 75%;
+    margin: 0 auto;
+    column-gap: 5%;
+}
+
+#term-weather {
+    border-radius: 8px;
+    width: auto;
+    padding: 5%;
+}
+
+#report {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.orange {
+    color: #F79120;
+}
+
+.black {
+    color: #222222;
+}
+
+.white {
+    color: #FFFFFF;
+}
+
+.auburn {
+    color: #A86416;
+}
+
+.gold {
+    color: #E6CD17;
+}
+
+.temp {
+    font-size: 4rem;
+}
+
+.conditions {
+    font-size: 1rem;
+    display: grid;
+    grid-template-rows: auto;
+    color: #222;
+}

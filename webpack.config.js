@@ -28,7 +28,7 @@ const webExtensionConfig = {
 	},
 	resolve: {
 		mainFields: ['browser', 'module', 'main'], // look for `browser` entry point in imported node modules
-		extensions: ['.ts', '.js'], // support ts-files and js-files
+		extensions: ['.ts', '.js', '.css'], // support ts-files, js-files, css-files
 		alias: {
 			// provides alternate implementation for node module and source files
 		},
@@ -45,7 +45,11 @@ const webExtensionConfig = {
 			exclude: /node_modules/,
 			use: [{
 				loader: 'ts-loader'
-			}]
+			},]
+		},
+		{ 
+			test: /\.css$/, 
+			use: 	['css-loader']
 		}]
 	},
 	plugins: [

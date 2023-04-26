@@ -105,3 +105,9 @@ dist
 
 # JSDoc documentation
 out/
+
+# Cookies file
+.cookies
+
+# VSCode web testing
+.vscode-test-web/
