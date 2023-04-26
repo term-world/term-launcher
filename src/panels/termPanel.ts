@@ -57,7 +57,7 @@ export class termPanel {
   }
 
   private _getWebviewContent(webview: vscode.Webview, extensionUri: vscode.Uri): string {
-    // Cookies
+    /* Cookies
     let cookies = vscode.workspace.openTextDocument(
       vscode.Uri.parse(`http:///static/mount/.cookies.json`)
     ).then(doc => {
@@ -72,6 +72,7 @@ export class termPanel {
       let org = Object(orgs[Math.floor(Math.random() * orgs.length)]);
       cbAd = `${termPanel.rawCDN}ads/${org.ads.candybar.visited}`;
     });
+    */
     return /*html*/`
     <!DOCTYPE html>
     <html lang="en">
