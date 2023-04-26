@@ -25,6 +25,7 @@ h2 {
     width: 75%;
     margin: 0 auto;
     column-gap: 5%;
+    row-gap: 5%;
 }
 
 #term-weather {
