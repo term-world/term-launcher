@@ -11,7 +11,7 @@ jobs:
       - name: Set up git repository
         uses: actions/checkout@v2
       - name: Install vsce
-        run: npm install --location=global vsce
+        run: npm install --location=global @vscode/vsce
       - name: Install requirements
         run: npm install
       - name: Create release
