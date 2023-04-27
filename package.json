@@ -1,10 +1,11 @@
 {
   "name": "term-launcher",
   "displayName": "term-launcher",
+  "publisher": "term-world",
   "description": "Replacement launcher page for term-world",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.77.0"
   },
   "categories": [
     "Other"
