@@ -69,3 +69,7 @@ h2 {
     grid-template-rows: auto;
     color: #222;
 }
+
+.ads {
+    display: block important!;
+}
