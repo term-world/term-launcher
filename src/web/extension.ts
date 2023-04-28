@@ -4,6 +4,7 @@ const style: string = require("./css/style.css").default.toString();
 const rawCDN: string = "https://raw.githubusercontent.com/term-world/TNN/main/";
 const data = {
   ads: {
+    cookies: undefined,
     candybar: "",
     block: ""
   },
@@ -33,12 +34,14 @@ export async function activate(context: vscode.ExtensionContext) {
   );
   // Track old data to check if different
   let oldData = {};
-  // Set up data objects
-  data.ads = await _chooseFromAvailableAds();
-  data.weather = await _retrieveCurrentWeather();
-  data.news = await _retrieveCurrentNews();
+
   // Update the panel
-  const updatePanel = () => {
+  const updatePanel = async () => {
+    // Set up data objects
+    data.ads = await _chooseFromAvailableAds();
+    console.log(data.ads.cookies);
+    data.weather = await _retrieveCurrentWeather();
+    data.news = await _retrieveCurrentNews();
     if(oldData !== data) {
       console.log("Update panel...");
       panel.webview.html = getWebViewContent(data);
@@ -48,7 +51,7 @@ export async function activate(context: vscode.ExtensionContext) {
   // Populate the panel first time
   panel.webview.html = getWebViewContent(data);
   // Update panel on 1-second interval, if data new
-  setInterval(updatePanel, 1000);
+  await setInterval(updatePanel, 1000);
 }
 
 async function _loadExternJSONFile(uri: string): Promise<string> {
@@ -58,10 +61,25 @@ async function _loadExternJSONFile(uri: string): Promise<string> {
   return data.json();
 }
 
+async function _readCookieFile() {
+  let adCookies;
+  vscode.workspace.openTextDocument(
+    vscode.Uri.parse(`http:///static/mount/.cookies.json`)
+  ).then(doc => {
+    let data = JSON.parse(doc.getText());
+    adCookies = data.filter(
+      (cookie:any) => cookie.kind == "ad"
+    );
+  });
+  return adCookies;
+}
+
 async function _chooseFromAvailableAds() {
   let ads = await _loadExternJSONFile("ads/network.json");
   let org = Object(ads[Math.floor(Math.random() * ads.length)]);
+  let cookies = await _readCookieFile();
   return {
+    cookies: cookies,
     candybar: `${rawCDN}ads/${org.ads.candybar.visited}`,
     block: `${rawCDN}ads/${org.ads.block.visited}`
   }
@@ -84,23 +102,6 @@ async function _retrieveCurrentNews() {
   let news = Object(await _loadExternJSONFile("news.json"));
   return news; 
 }
-
-/* Cookies
-let cookies = vscode.workspace.openTextDocument(
-  vscode.Uri.parse(`http:///static/mount/.cookies.json`)
-).then(doc => {
-  console.log(doc.getText());
-});
-// Ads
-let availableAds = (async () => {
-  return await this._loadExternJSONFile("ads/network.json");
-})();
-let cbAd;
-availableAds.then(orgs => {
-  let org = Object(orgs[Math.floor(Math.random() * orgs.length)]);
-  cbAd = `${termPanel.rawCDN}ads/${org.ads.candybar.visited}`;
-});
-*/
 
 function getWebViewContent(data: any): string {
   return /*html*/`

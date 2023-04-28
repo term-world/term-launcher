@@ -107,7 +107,7 @@ dist
 out/
 
 # Cookies file
-.cookies
+.cookies*
 
 # VSCode web testing
 .vscode-test-web/
