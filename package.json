@@ -3,7 +3,7 @@
   "displayName": "term-launcher",
   "publisher": "term-world",
   "description": "Replacement launcher page for term-world",
-  "version": "1.0.2",
+  "version": "1.1.2",
   "engines": {
     "vscode": "^1.77.0"
   },
